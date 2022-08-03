@@ -31,7 +31,6 @@ html {
 
 body {
   font-family: 'Raleway', sans-serif;
-  background-color: rgb(245, 249, 250);
 }
 
 .galleryContainer {
@@ -127,7 +126,7 @@ nav img:hover {
 }
 
 nav img:hover ~ h1 {
-  color: greenyellow;
+  color: #adff2f;
 }
 
 .heading-text {
@@ -147,7 +146,8 @@ ul {
 /* Responsive image gallery rules begin*/
 
 section {
-  background-color: var(--navbar);
+  background-color: rgba(230, 230, 230, 0.8);
+  transition: background-color 3s ease;
 }
 
 .image-gallery {
@@ -180,11 +180,9 @@ section {
   background-color: var(--labelDark);
   top: 0;
   left: 0;
-  /* transform: scale(1); */
-  transition: all 0.8s 0.1s ease-in-out;
+  transition: all 0.8s ease-in-out;
   color: var(--labelLightText);
   border-radius: 25px 25px 0 0;
-  /* center overlay text */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,11 +202,10 @@ section {
   background-color: var(--preOverlayLight);
   top: 0;
   left: 0;
-  transition: all 0.4s 0.1s ease-in-out;
+  transition: all 0.4s ease-in-out;
   color: var(--preOverlayDarkText);
   border: 0px var(--labelDark) solid;
   border-radius: 25px;
-  /* center overlay text */
   display: flex;
   align-items: center;
   justify-content: center;

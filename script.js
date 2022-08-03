@@ -1,6 +1,7 @@
 const knots = document.querySelectorAll(".overlay");
 const knotLabels = document.querySelectorAll(".knotlabel");
 const navLinks = document.querySelectorAll(".link");
+const midSection = document.querySelector('body');
 
 const tarp = 'OsesfBOQ_Nc';
 const timber = 'OsesfBOQ_Nc';
@@ -78,7 +79,7 @@ document.querySelector('.logoImage').addEventListener('mouseover', logoHoverOn =
 
 // Listen for ICON mouseOUT - clear ALL infoActive
 document.querySelector('.logoImage').addEventListener('mouseout', logoHoverOFF => {
-  clearActive();
+  clearAllActive();
 })
 
 // FUNCTION - select video and scroll down
@@ -178,7 +179,7 @@ function activePanel(whichPanel) {
   knotLabels[whichPanel].classList.add('infoActiveKnotlabel');
 }
 
-// Remove ALL infoActive classes
+// REMOVE ALL infoActive classes
 function clearActive() {
   knots.forEach(knot => {
     knot.classList.remove('infoActiveOverlay');
@@ -188,12 +189,32 @@ function clearActive() {
   })
 }
 
-// Apply infoActive to ALL panels
+// APPLY infoActive to ALL panels + apply long transitions
 function allActive() {
   knots.forEach(knot => {
+    knot.style.transition = 'all 4s ease-in-out';
     knot.classList.add('infoActiveOverlay');
   })
   knotLabels.forEach(label => {
+    label.style.transition = 'all 4s ease-in-out';
     label.classList.add('infoActiveKnotlabel');
   })
+  midSection.style.backgroundColor = 'rgba(8, 11, 15, 0.85)';
+  midSection.style.transition = 'background-color 10s ease';
 }
+
+// REMOVE ALL infoActive classes + apply normal transitions
+function clearAllActive() {
+  knots.forEach(knot => {
+    knot.style.transition = 'all 0.4s ease-in-out';
+    knot.classList.remove('infoActiveOverlay');
+  })
+  knotLabels.forEach(label => {
+    label.style.transition = 'all 0.8s ease-in-out';
+    label.classList.remove('infoActiveKnotlabel');
+  })
+  midSection.style.backgroundColor = 'rgba(230, 230, 230, 0.8)';
+  midSection.style.transition = 'background-color 3s ease';
+}
+
+
